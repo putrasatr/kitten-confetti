@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Scrolling Parallax</title>
+    <link rel="stylesheet" href="./test.css">
+    <script
+        src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
+    <script src="./test.js"></script>
+    <script src="https://codepen.io/Gthibaud/pen/dybzvNw.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.4/p5.min.js"></script>
+</head>
+
+<body>
+    <canvas id="defaultCanvas0" width="1438" height="180" style="width: 719px; height: 90px;"></canvas>
+    <main class="wrapper">
+        <section class="section parallax bg1">
+            <h1>Cute Kitten</h1>
+        </section>
+        <section class="section static">
+            <h1>Boring</h1>
+        </section>
+        <section class="section parallax bg2">
+            <h1>Fluffy Kitten</h1>
+        </section>
+    </main>
+    <div class="box-img">
+        <img src="https://placekitten.com/g/800/600" alt="" class="image">
+    </div>
+    <p>Silib-siloka asal nya Raga yang mengalami 9 tahap dalam </p>rahim IBU<p> </p>
+    <p>1. Ngaherang</p>
+    <p>2. Lumenggang</p>
+    <p>3. Gumulung</p>
+    <p>4. Gumeter</p>
+    <p>5. Mangrupa</p>
+    <p>6. Usik</p>
+    <p>7. Malik</p>
+    <p>8. Ngora</p>
+    <p>9. Medal</p>
+</body>
+<style>
+    .box-img {
+        width: 200px;
+        height: 100px;
+    }
+
+    .wrapper {
+        height: 100vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+        perspective: 2px;
+    }
+
+    .section {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-shadow: 0 0 5px #000;
+    }
+
+    .parallax::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        transform: translateZ(-1px) scale(1.5);
+        background-size: 100%;
+        z-index: -1;
+    }
+
+    .static {
+        background: red;
+    }
+
+    .bg1::after {
+        background-image: url('https://placekitten.com/g/900/700');
+    }
+
+    .bg2::after {
+        background-image: url('https://placekitten.com/g/800/600');
+    }
+
+    .image {
+        object-fit: none;
+    }
+</style>
+
+</html>
+<!-- <html>
+
+<body>
+    <button id="debounce">
+        Debounce
+    </button>
+    <script>
+        var button = document.getElementById("debounce");
+        const debounce = (func, delay) => {
+            let debounceTimer
+            return function () {
+                const context = this
+                const args = arguments
+                clearTimeout(debounceTimer)
+                debounceTimer
+                    = setTimeout(() => func.apply(context, args), delay)
+            }
+        }
+        button.addEventListener('click', debounce(function () {
+            alert("Hello\nNo matter how many times you" +
+                "click the debounce button, I get " +
+                "executed once every 3 seconds!!")
+        }, 3000));
+    </script>
+</body>
+
+</html> -->
